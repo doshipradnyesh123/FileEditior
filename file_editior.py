@@ -53,8 +53,9 @@ def text_file_editor():
     try:
         uploaded_file = st.file_uploader("Upload a text file")
     except UnicodeDecodeError as e:
-
         st.error(f"An error occurred: {e}")
+    except Exception as e:
+        st.error(f"An error while reading the file. ERROR : {e}")
     else:
         if uploaded_file:
             # Read file content
